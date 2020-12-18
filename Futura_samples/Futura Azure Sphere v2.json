@@ -1,0 +1,58 @@
+[
+  {
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphere7k6;2",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphere7k6:Humidity;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Humidity"
+        },
+        "name": "Humidity",
+        "schema": "integer"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphere7k6:Temperature;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Temperature"
+        },
+        "name": "Temperature",
+        "schema": "double"
+      }
+    ],
+    "displayName": {
+      "en": "Futura Azure Sphere "
+    },
+    "extends": [
+      "dtmi:futuraMt3620:FuturaAzureSphereV2zb;1"
+    ],
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereV2zb;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereV2zb:RFID;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "RFID"
+        },
+        "name": "RFID",
+        "schema": "string"
+      }
+    ],
+    "displayName": {
+      "en": "Interfaccia RFID"
+    }
+  }
+]

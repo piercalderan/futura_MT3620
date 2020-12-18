@@ -1,0 +1,39 @@
+[
+  {
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereADC3ns;1",
+    "@type": "Interface",
+    "contents": [],
+    "displayName": {
+      "en": "Futura Azure Sphere ADC"
+    },
+    "extends": [
+      "dtmi:futuraMt3620:FuturaAzureSphereADC5vi;1"
+    ],
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereADC5vi;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereADC5vi:LUX;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "LUX"
+        },
+        "name": "LUX",
+        "schema": "double"
+      }
+    ],
+    "displayName": {
+      "en": "Interfaccia"
+    }
+  }
+]

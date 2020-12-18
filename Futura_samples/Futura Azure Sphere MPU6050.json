@@ -1,0 +1,117 @@
+[
+  {
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU605038g;1",
+    "@type": "Interface",
+    "contents": [],
+    "displayName": {
+      "en": "Futura Azure Sphere MPU6050"
+    },
+    "extends": [
+      "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et;1"
+    ],
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:AccelX;1",
+        "@type": [
+          "Telemetry",
+          "Acceleration"
+        ],
+        "comment": "Accel X",
+        "description": {
+          "en": "Accel X"
+        },
+        "displayName": {
+          "en": "Accel X"
+        },
+        "name": "AccelX",
+        "schema": "double",
+        "unit": "metrePerSecondSquared"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:AccelY;1",
+        "@type": [
+          "Telemetry",
+          "Acceleration"
+        ],
+        "comment": "Accel Y",
+        "description": {
+          "en": "Accel Y"
+        },
+        "displayName": {
+          "en": "Accel Y"
+        },
+        "name": "AccelY",
+        "schema": "double",
+        "unit": "metrePerSecondSquared"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:AccelZ;1",
+        "@type": [
+          "Telemetry",
+          "Acceleration"
+        ],
+        "comment": "Accel Z",
+        "description": {
+          "en": "Accel Z"
+        },
+        "displayName": {
+          "en": "Accel Z"
+        },
+        "name": "AccelZ",
+        "schema": "double",
+        "unit": "metrePerSecondSquared"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:GyroX;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Gyro X"
+        },
+        "name": "GyroX",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:GyroY;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Gyro Y"
+        },
+        "name": "GyroY",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:GyroZ;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Gyro Z"
+        },
+        "name": "GyroZ",
+        "schema": "double"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereMPU60506et:TempMPU6050;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "Temp MPU6050"
+        },
+        "name": "TempMPU6050",
+        "schema": "double"
+      }
+    ],
+    "displayName": {
+      "en": "Interfaccia"
+    }
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereRTA52j;1",
+    "@type": "Interface",
+    "contents": [],
+    "displayName": {
+      "en": "Futura Azure Sphere RTA"
+    },
+    "extends": [
+      "dtmi:futuraMt3620:FuturaAzureSphereRTA2ub;1"
+    ],
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereRTA2ub;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereRTA2ub:RTA;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "RTA"
+        },
+        "name": "RTA",
+        "schema": "integer"
+      }
+    ],
+    "displayName": {
+      "en": "Interfaccia"
+    }
+  }
+]

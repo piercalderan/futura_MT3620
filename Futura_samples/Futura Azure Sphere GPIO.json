@@ -1,0 +1,111 @@
+[
+  {
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIO3lv;1",
+    "@type": "Interface",
+    "contents": [],
+    "displayName": {
+      "en": "Futura Azure Sphere GPIO"
+    },
+    "extends": [
+      "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0;1"
+    ],
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:LightOn;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Light On"
+        },
+        "name": "LightOn"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:LightOff;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Light Off"
+        },
+        "name": "LightOff"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:FanOn;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Fan On"
+        },
+        "name": "FanOn"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:FanOff;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Fan Off"
+        },
+        "name": "FanOff"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:MotorOn;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Motor On"
+        },
+        "name": "MotorOn"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:MotorOff;1",
+        "@type": "Command",
+        "commandType": "synchronous",
+        "displayName": {
+          "en": "Motor Off"
+        },
+        "name": "MotorOff"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:button1;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "button1"
+        },
+        "name": "button1",
+        "schema": "integer"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:button2;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "button2"
+        },
+        "name": "button2",
+        "schema": "integer"
+      },
+      {
+        "@id": "dtmi:futuraMt3620:FuturaAzureSphereGPIOl0:button3;1",
+        "@type": "Telemetry",
+        "displayName": {
+          "en": "button3"
+        },
+        "name": "button3",
+        "schema": "integer"
+      }
+    ],
+    "displayName": {
+      "en": "Interfaccia"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "SchemaVersion": 1,
+  "Name": "Futura_inter-core_HLApp_MT3620_High_Level",
+  "ComponentId": "25025d2c-66da-4448-bae1-ac26fcdd3627",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [ "0ne001C85E4" ],
+  "Capabilities": {
+    "AllowedConnections": [
+      "global.azure-devices-provisioning.net",
+      "iotc-f18c6479-0fd2-4197-80f0-337ba9198b77.azure-devices.net"
+    ],
+
+    "DeviceAuthentication": "df7ba4db-4a32-4bfd-b401-59f2846cc320",
+    "AllowedApplicationConnections": [ "005180BC-402F-4CB3-A662-72937DBCDE47" ]
+  },
+  "ApplicationType": "Default"
+}

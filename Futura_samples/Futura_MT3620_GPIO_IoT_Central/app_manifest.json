@@ -1,0 +1,31 @@
+{
+  "SchemaVersion": 1,
+  "Name": "Futura_MT3620_GPIO_IoT_Central",
+  "ComponentId": "dc7f135c-6074-4d49-aa3a-160e4eed884f",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [ "0ne001C85E4" ],
+  "Capabilities": {
+    "AllowedConnections": [
+      "global.azure-devices-provisioning.net",
+      "futura-mt3620.azureiotcentral.com",
+      "iotc-f18c6479-0fd2-4197-80f0-337ba9198b77.azure-devices.net"
+    ],
+    "Gpio": [
+      "$SAMPLE_BUTTON_1",
+      "$SAMPLE_BUTTON_2",
+      "$SAMPLE_BUTTON_3",
+      "$SAMPLE_LED_1",
+      "$SAMPLE_LED_2",
+      "$SAMPLE_LED_3",
+      "$SAMPLE_USER_1",
+      "$SAMPLE_USER_2",
+      "$SAMPLE_USER_3"      
+    ],    
+    "WifiConfig": true,
+    "NetworkConfig": false,
+    "SystemTime": false,
+    "DeviceAuthentication": "df7ba4db-4a32-4bfd-b401-59f2846cc320"
+  }, 
+  "ApplicationType": "Default"
+}
+

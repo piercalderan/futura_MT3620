@@ -1,0 +1,17 @@
+{
+  "SchemaVersion": 1,
+  "Name": "AzureIoT",
+  "ComponentId": "819255ff-8640-41fd-aea7-f85d34c491d5",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [ "0ne001C85E4" ],
+  "Capabilities": {
+
+    "AllowedConnections": [
+      "global.azure-devices-provisioning.net",
+      "iotc-f18c6479-0fd2-4197-80f0-337ba9198b77.azure-devices.net"
+    ],  
+    "Uart": [ "$SAMPLE_ISU2_UART" ],
+    "DeviceAuthentication": "df7ba4db-4a32-4bfd-b401-59f2846cc320"
+  },
+  "ApplicationType": "Default"
+}

@@ -1,0 +1,47 @@
+{
+    "Metadata": {
+        "Type": "Azure Sphere Hardware Definition",
+        "Version": 1
+    },
+    "Description":
+    {
+        "Name": "Esempio di astrazione hardware per Futura MT3620",
+        "MainCoreHeaderFileTopContent": [
+            "/* Copyright PIER CALDERAN, Licensed under the MIT License. */",
+            "// Questo file definisce la mappatura dalla scheda Futura MT3620",
+            "// 'sample hardware' è un'astrazione hardware di esempio utilizzata",
+			"// dagli esempi su  https://github.com/piercalderan/futura_MT3620.git.",
+            "// Le periferiche sono integrate nella scheda.",
+			"// Altre devono essere collegate esternamente quando necessario.",
+            "// Vedere il Capitolo 9 del libro Azure Sphere per i dettagli."
+        ]
+    },
+  "Imports": [ { "Path": "mt3620.json" } ],
+    "Peripherals": [
+        {"Name": "SAMPLE_ISU0_I2C", "Type": "I2cMaster", "Mapping": "MT3620_ISU0_I2C", "Comment": "ISU0 I2C, pin 20 (SDA) pin 19 (SCL) MPU6850"},
+		{"Name": "SAMPLE_ISU1_I2C", "Type": "I2cMaster", "Mapping": "MT3620_ISU1_I2C", "Comment": "ISU1 I2C, pin 24 (SDA) pin 23 (SCL)"},
+        {"Name": "SAMPLE_ISU2_I2C", "Type": "I2cMaster", "Mapping": "MT3620_ISU2_I2C", "Comment": "ISU2 I2C, pin 28 (SDA) pin 27 (SCL)"},
+		{"Name": "SAMPLE_ISU1_SPI", "Type": "SpiMaster", "Mapping": "MT3620_ISU1_SPI", "Comment": "ISU1 SPI, pin 22 23 24 25 26"},
+		{"Name": "SAMPLE_ARDUINO_I2C", "Type": "I2cMaster", "Mapping": "MT3620_ISU1_I2C", "Comment": "ISU1 I2C, pin 24 (SDA) pin 23 (SCL) pin 5 (SDA), pin 11 (SCL)"},
+		{"Name": "SENS_DHT", "Type": "Gpio", "Mapping": "MT3620_GPIO0", "Comment": "MT3620 PIN5 DHT"},
+        {"Name": "SAMPLE_LED_1", "Type": "Gpio", "Mapping": "MT3620_GPIO8", "Comment": "MT3620 PIN 11 LED1"},
+        {"Name": "SAMPLE_LED_2", "Type": "Gpio", "Mapping": "MT3620_GPIO9", "Comment": "MT3620 PIN 12 LED2"},        
+        {"Name": "SAMPLE_LED_3", "Type": "Gpio", "Mapping": "MT3620_GPIO10", "Comment": "MT3620 PIN 13 LED3"},        
+        {"Name": "SAMPLE_BUTTON_1", "Type": "Gpio", "Mapping": "MT3620_GPIO12", "Comment": "MT3620 PIN 14 SW1"},
+        {"Name": "SAMPLE_BUTTON_2", "Type": "Gpio", "Mapping": "MT3620_GPIO13", "Comment": "MT3620 PIN 15 SW2"},        
+        {"Name": "SAMPLE_BUTTON_3", "Type": "Gpio", "Mapping": "MT3620_GPIO16", "Comment": "MT3620 PIN 16 SW3"},
+		{"Name": "SAMPLE_ISU0_UART", "Type": "Uart", "Mapping": "MT3620_ISU0_UART", "Comment": "MT3620 TX PIN 18"},
+	    {"Name": "SAMPLE_ISU2_UART", "Type": "Uart", "Mapping": "MT3620_ISU2_UART", "Comment": "MT3620 RX PIN 28"},    
+		{"Name": "SAMPLE_POTENTIOMETER_ADC_CHANNEL", "Type": "Adc", "Mapping": "MT3620_ADC_CHANNEL0", "Comment": "MT3620 PIN 29 ADC CH0"},
+		{"Name": "SAMPLE_POTENTIOMETER_ADC_CONTROLLER", "Type": "Adc", "Mapping": "MT3620_ADC_CONTROLLER0", "Comment": "MT3620 ADC"},
+		{"Name": "SAMPLE_PWM_CONTROLLER0", "Type": "Pwm", "Mapping": "MT3620_PWM_CONTROLLER0", "Comment": "PWM CONTROLLER 0 channel 0"},
+        {"Name": "SAMPLE_PWM_CONTROLLER1", "Type": "Pwm", "Mapping": "MT3620_PWM_CONTROLLER1", "Comment": "PWM CONTROLLER 1 channel 0"},
+        {"Name": "SAMPLE_LED_PWM_CONTROLLER2", "Type": "Pwm", "Mapping": "MT3620_PWM_CONTROLLER2", "Comment": "LED PWM CONTROLLER 2"},		
+		{"Name": "SAMPLE_USER_1", "Type": "Gpio", "Mapping": "MT3620_GPIO1", "Comment": "MT3620 PIN 6 USER1"},        
+        {"Name": "SAMPLE_USER_2", "Type": "Gpio", "Mapping": "MT3620_GPIO2", "Comment": "MT3620 PIN 7 USER2"},        
+        {"Name": "SAMPLE_USER_3", "Type": "Gpio", "Mapping": "MT3620_GPIO4", "Comment": "MT3620 PIN 8 USER3"},        
+        {"Name": "SAMPLE_USER_4", "Type": "Gpio", "Mapping": "MT3620_GPIO5", "Comment": "MT3620 PIN 9 USER4"},        
+        {"Name": "SAMPLE_USER_5", "Type": "Gpio", "Mapping": "MT3620_GPIO6", "Comment": "MT3620 PIN 10 USER5"},        
+        {"Name": "SAMPLE_USER_6", "Type": "Gpio", "Mapping": "MT3620_GPIO17", "Comment": "MT3620 PIN 17 USER6"}
+    ]
+}

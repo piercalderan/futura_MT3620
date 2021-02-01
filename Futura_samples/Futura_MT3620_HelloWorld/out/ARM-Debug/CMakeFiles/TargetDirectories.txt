@@ -1,0 +1,4 @@
+C:/Users/User/Downloads/futura_MT3620/Futura_samples/Futura_MT3620_HelloWorld/out/ARM-Debug/CMakeFiles/HelloWorld_HighLevelApp.dir
+C:/Users/User/Downloads/futura_MT3620/Futura_samples/Futura_MT3620_HelloWorld/out/ARM-Debug/CMakeFiles/MakeImage.dir
+C:/Users/User/Downloads/futura_MT3620/Futura_samples/Futura_MT3620_HelloWorld/out/ARM-Debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Downloads/futura_MT3620/Futura_samples/Futura_MT3620_HelloWorld/out/ARM-Debug/CMakeFiles/rebuild_cache.dir

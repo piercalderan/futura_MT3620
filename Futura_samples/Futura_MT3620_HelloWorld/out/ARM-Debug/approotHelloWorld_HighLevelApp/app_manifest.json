@@ -1,0 +1,1 @@
+{"SchemaVersion":1,"Name":"Futura_MT3620_HelloWorld","ComponentId":"1689d8b2-c835-2e27-27ad-e894d6d15fa9","EntryPoint":"/bin/app","CmdArgs":[],"Capabilities":{"Gpio":[8,9,10]},"ApplicationType":"Default","TargetApplicationRuntimeVersion":6}

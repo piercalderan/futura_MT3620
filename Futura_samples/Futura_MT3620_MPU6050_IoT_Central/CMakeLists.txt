@@ -2,7 +2,7 @@
 #  Licensed under the MIT License.
 
 CMAKE_MINIMUM_REQUIRED(VERSION 3.8)
-PROJECT(Futura_MT3620_DHT22_IoT_Central)
+PROJECT(Futura_MT3620_MPU6050_IoT_Central)
 
 azsphere_configure_tools(TOOLS_REVISION "20.07")
 azsphere_configure_api(TARGET_API_SET "6")

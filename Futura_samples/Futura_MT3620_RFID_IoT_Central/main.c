@@ -40,12 +40,13 @@
 
 uint8_t str_rfid[MAX_LEN]; //card ID
 uint8_t str_dump[10]; //card dump
-void bytetohex(char* xp, const char* bb, int n); // Convert the byte array to a string of bytes
+
+void bytetohex(char* xp, const char* bb, int n); // Converte l'array di byte in una stringa di byte
 map_str_t priceMap; // map for RFID PICC
 
 static char eventBuffer[100] = { 0 };
 
-// Convert the byte array to a string of bytes
+// Converte l'array di byte in una stringa di byte
 void bytetohex(char* xp, const char* bb, int n)
 {
     const char xx[] = "0123456789ABCDEF";
@@ -59,19 +60,19 @@ void delay(int s)
 
 static void RFIDTimerEventHandler(void)
 {
-    // Prepare for reading tags
+    // Preparazione alla lettura dei tag
     uint8_t byte;
     byte = mfrc522_read(ComIEnReg);
     mfrc522_write(ComIEnReg, byte | 0x20);
     byte = mfrc522_read(DivIEnReg);
     mfrc522_write(DivIEnReg, byte | 0x80);
 
-    // Try to read the RFID card    
-    byte = mfrc522_request(PICC_REQALL, str_rfid); // Find ID
+    // Prova a leggere la scheda RFID    
+    byte = mfrc522_request(PICC_REQALL, str_rfid); // trova l'ID
 
     if (byte == CARD_FOUND)
     {
-        Log_Debug("[MFRC522][INFO] Found a card: %x\n", byte);
+        Log_Debug("[MFRC522][INFO] Trovata card: %x\n", byte);
 
         byte = mfrc522_get_card_serial(str_rfid);
         
@@ -82,16 +83,25 @@ static void RFIDTimerEventHandler(void)
             {                
                 Log_Debug("%x", str_rfid[byte]); // dump ID in byte array
             }
-            // Convert the byte array to a string of bytes
+            // Converte l'array di byte in una stringa di byte
             char hexstr[8];
             bytetohex(hexstr, str_rfid, 8);
             hexstr[8] = 0;
             Log_Debug("\nhex: %x\n", hexstr);
-            int* val = map_get(&priceMap, hexstr);
-            Log_Debug("[MFRC522][INFO] Serial: %s\n", hexstr);
-            Log_Debug("[MAP][INFO] Map Price: %s\n", *val);
-
-            //static char eventBuffer[100] = { 0 };
+            int* val=0;
+            if (map_get(&priceMap, hexstr)>0)
+            {
+                val=map_get(&priceMap, hexstr);
+                Log_Debug("[MFRC522][INFO] Serial: %s\n", hexstr);
+                Log_Debug("[MAP][INFO] Map Price: %s\n", *val);
+            }
+                
+            else
+            {
+                Log_Debug("[MFRC522][INFO] Pre Serial: %s\n", hexstr);                
+                return;
+            }
+            
             static const char* EventMsgTemplate = "%s";
             int len = snprintf(eventBuffer, sizeof(eventBuffer), EventMsgTemplate, *val);
             Log_Debug("[IoTCentral][INFO] Sending IoT Central Message: %s\n", eventBuffer);
@@ -185,18 +195,18 @@ int main(int argc, char *argv[])
 {
             
     map_init(&priceMap);
-    map_set(&priceMap, "291C0EA3", "Model 1: €100");
-    map_set(&priceMap, "D098C71A", "Model 2: €200");
-    map_set(&priceMap, "31AC6A1C", "Model 3: €300");
+    map_set(&priceMap, "83B03F16", "Modello 1: €100");
+    map_set(&priceMap, "4695CA32", "Modello 2: €200");
+    map_set(&priceMap, "31AC6A1C", "Modello 3: €300");
 
-    // Start the RFID Scanner
+    // Avvio RFID Scanner
     if (mfrc522_init())
     {
-        Log_Debug("RFID Scanner found!\n");
+        Log_Debug("RFID Scanner trovato!\n");
     }
     else
     {
-        Log_Debug("RFID Scanner not found!\n");
+        Log_Debug("RFID Scanner non trovato!\n");
         return -1;
     }
 
@@ -217,9 +227,9 @@ int main(int argc, char *argv[])
 
     exitCode = InitPeripheralsAndHandlers();
 
-    Log_Debug("Trying to get version\n");
+    Log_Debug("Provo a determinare la versione dello scanner\n");
     uint8_t byte = mfrc522_read(VersionReg);
-    Log_Debug("Detected version %d (Hex: %x)\n", byte, byte); // RFID Version must be 0x92
+    Log_Debug("Version trovata %d (Hex: %x)\n", byte, byte); // RFID Version must be 0x92
     delay(2);
     RFIDTimerEventHandler();
     delay(2);
@@ -291,7 +301,7 @@ static ExitCode InitPeripheralsAndHandlers(void)
 
     
     // Open button 1 GPIO as input
-    Log_Debug("Opening SAMPLE_BUTTON_1 as input\n");
+    Log_Debug("Apertura di SAMPLE_BUTTON_1 come input\n");
     sendRFIDButtonGpioFd = GPIO_OpenAsInput(SAMPLE_BUTTON_1);
     if (sendRFIDButtonGpioFd < 0) {
         Log_Debug("ERROR: Could not open button 1: %s (%d).\n", strerror(errno), errno);
@@ -587,7 +597,6 @@ static void TwinReportBoolState(const char *propertyName, bool propertyValue)
 
 
 //     Callback invoked when the Device Twin reported properties are accepted by IoT Central.
-
 static void ReportStatusCallback(int result, void *context)
 {
     Log_Debug("INFO: Device Twin reported properties update result: HTTP status code %d\n", result);
@@ -595,10 +604,10 @@ static void ReportStatusCallback(int result, void *context)
 
 
 
-// Check button been pressed.
-// <param name="fd">The button file descriptor</param>
-// <param name="oldState">Old state of the button (pressed or released)</param>
-// <returns>true if pressed, false otherwise</returns>
+// Il pulsante di controllo è stato premuto.
+// <param name = "fd"> Il descrittore di file del pulsante </param>
+// <param name = "oldState"> Vecchio stato del pulsante (premuto o rilasciato) </param>
+// <return> true se premuto, false in caso contrario </returns>
 static bool IsButtonPressed(int fd, GPIO_Value_Type *oldState)
 {
     bool isButtonPressed = false;
@@ -608,7 +617,7 @@ static bool IsButtonPressed(int fd, GPIO_Value_Type *oldState)
         Log_Debug("ERROR: Could not read button GPIO: %s (%d).\n", strerror(errno), errno);
         exitCode = ExitCode_IsButtonPressed_GetValue;
     } else {
-        // Button is pressed if it is low and different than last known state.
+        // Il pulsante viene premuto se è basso e diverso dall'ultimo stato noto.
         isButtonPressed = (newState != *oldState) && (newState == GPIO_Value_Low);
         *oldState = newState;
     }
@@ -616,12 +625,12 @@ static bool IsButtonPressed(int fd, GPIO_Value_Type *oldState)
 }
 
 
-// Pressing button 1 will send RFID event to Azure IoT Central
+// La pressione del pulsante 1 invierà l'evento RFID ad Azure IoT Central
 static void sendRFIDButtonHandler(void)
 {
     if (IsButtonPressed(sendRFIDButtonGpioFd, &sendRFIDButtonState)) {       
         RFIDTimerEventHandler();
-        SendTelemetry("RFID", eventBuffer); //RFID CARD CONTENT                
+        SendTelemetry("RFID", eventBuffer); //Contenuto della card RFID 
     }
 }
 

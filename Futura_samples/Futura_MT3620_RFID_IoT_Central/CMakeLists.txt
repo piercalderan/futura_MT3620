@@ -2,7 +2,10 @@
 #  Licensed under the MIT License.
 
 CMAKE_MINIMUM_REQUIRED(VERSION 3.8)
-PROJECT(AzureIoT C)
+PROJECT(Futura_MT3620_RFID_IoT_Central)
+
+azsphere_configure_tools(TOOLS_REVISION "20.07")
+azsphere_configure_api(TARGET_API_SET "9")
 
 # Create executable
 ADD_EXECUTABLE(${PROJECT_NAME} main.c eventloop_timer_utilities.c parson.c mfrc522.c map.c)
@@ -10,21 +13,7 @@ TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME} PUBLIC ${AZURE_SPHERE_API_SET_DIR}/us
 TARGET_COMPILE_DEFINITIONS(${PROJECT_NAME} PUBLIC AZURE_IOT_HUB_CONFIGURED)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} m azureiot applibs pthread gcc_s c)
 
-find_program(POWERSHELL powershell.exe)
-
-if (POWERSHELL)
-    # Run validate_manifest script during build
-    ADD_CUSTOM_TARGET(ValidateManifest ALL
-        COMMAND ${POWERSHELL} -ExecutionPolicy Bypass -NoProfile -NonInteractive -File ${CMAKE_SOURCE_DIR}/script/validate_manifest.ps1
-    DEPENDS ${CMAKE_SOURCE_DIR}/app_manifest.json)
-else()
-    # Warn users without PowerShell to update their manifest
-    ADD_CUSTOM_TARGET(ValidateManifest ALL
-        COMMAND echo "Please ensure that you have updated app_manifest.json as described in IoTCentral.md or IoTHub.md, as appropriate."
-    DEPENDS ${CMAKE_SOURCE_DIR}/app_manifest.json)
-endif()
-
-ADD_DEPENDENCIES(ValidateManifest ${PROJECT_NAME})
+azsphere_target_hardware_definition(${PROJECT_NAME} TARGET_DIRECTORY "../../Hardware/futura_mt3620" TARGET_DEFINITION "sample_hardware.json")
 
 # Add MakeImage post-build command
 INCLUDE("${AZURE_SPHERE_MAKE_IMAGE_FILE}")

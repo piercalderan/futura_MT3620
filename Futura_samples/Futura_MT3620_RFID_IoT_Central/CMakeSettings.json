@@ -1,10 +1,7 @@
 ﻿{
   "environments": [
     {
-      "environment": "AzureSphere",
-      "AzureSphereTargetApiSet": "6+Beta2007",
-      "AzureSphereTargetHardwareDefinitionDirectory": "C:\\Users\\User\\Downloads\\az_samples\\Futura_MT3620\\Hardware\\futura_mt3620",
-      "AzureSphereTargetHardwareDefinition": "sample_hardware.json"
+      "environment": "AzureSphere"
     }
   ],
   "configurations": [
@@ -12,32 +9,37 @@
       "name": "ARM-Debug",
       "generator": "Ninja",
       "configurationType": "Debug",
-      "inheritEnvironments": [ "AzureSphere" ],
-      "buildRoot": "${projectDir}\\out\\${name}-${env.AzureSphereTargetApiSet}",
-      "installRoot": "${projectDir}\\install\\${name}-${env.AzureSphereTargetApiSet}",
-      "cmakeCommandArgs": "--no-warn-unused-cli",
+      "inheritEnvironments": [
+        "AzureSphere"
+      ],
+      "buildRoot": "${projectDir}\\out\\${name}",
+      "installRoot": "${projectDir}\\install\\${name}",
+      "cmakeToolchain": "${env.AzureSphereDefaultSDKDir}CMakeFiles\\AzureSphereToolchain.cmake",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
       "variables": [
         {
-          "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "${env.AzureSphereDefaultSDKDir}CMakeFiles\\AzureSphereToolchain.cmake",
-          "type": "STRING"
-        },
+          "name": "AZURE_SPHERE_TARGET_API_SET",
+          "value": "latest-lts"
+        }
+      ]
+    },
+    {
+      "name": "ARM-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "inheritEnvironments": [
+        "AzureSphere"
+      ],
+      "buildRoot": "${projectDir}\\out\\${name}",
+      "installRoot": "${projectDir}\\install\\${name}",
+      "cmakeToolchain": "${env.AzureSphereDefaultSDKDir}CMakeFiles\\AzureSphereToolchain.cmake",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "variables": [
         {
           "name": "AZURE_SPHERE_TARGET_API_SET",
-          "value": "${env.AzureSphereTargetApiSet}",
-          "type": "STRING"
-        },
-        {
-          "name": "AZURE_SPHERE_TARGET_HARDWARE_DEFINITION_DIRECTORY",
-          "value": "${env.AzureSphereTargetHardwareDefinitionDirectory}",
-          "type": "STRING"
-        },
-        {
-          "name": "AZURE_SPHERE_TARGET_HARDWARE_DEFINITION",
-          "value": "${env.AzureSphereTargetHardwareDefinition}",
-          "type": "STRING"
+          "value": "latest-lts"
         }
       ]
     }
